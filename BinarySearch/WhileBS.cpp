@@ -12,7 +12,11 @@ int main() {
     cout<<sizeof(arr)/sizeof(arr[0])<<endl;
     //使用二分查找函数
     int result = WhileBSGetIndex(arr,sizeof(arr)/sizeof(arr[0]),13);
-    cout<<result<<endl;
+    if (result == -1) {
+        cout<<"查找的值不存在"<<endl;
+    }else {
+        cout<<"查找的值存在，索引为："<<result<<endl;
+    }
     return 0;
 }
 //定义二分查找函数
