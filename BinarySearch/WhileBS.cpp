@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+//前向声明
 int WhileBSGetIndex(int arr[], int size, int target);
 
 int main() {
