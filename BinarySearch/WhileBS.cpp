@@ -7,6 +7,7 @@ int WhileBSGetIndex(int arr[], int size, int target);
 int main() {
     //while版二分查找
     //解决问题：一个排好序（升序/降序）的数组中找到特定的值
+    //目前无法完成有重复数值的查找
     //定义一个有序数组
     int arr[] = {2,6,13,21,36,47,63,81,97};
     cout<<sizeof(arr)/sizeof(arr[0])<<endl;

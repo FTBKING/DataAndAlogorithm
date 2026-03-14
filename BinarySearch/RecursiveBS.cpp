@@ -6,11 +6,12 @@ int RecursiveBSGetIndex(int arr[], int start, int end, int target);
 int main() {
     //递归版二分查找.
     //解决问题：一个排好序（升序/降序）的数组中找到特定的值
+    //目前无法完成有重复数值的查找
     //定义一个有序数组
     int arr[] = {2,6,13,21,36,47,63,81,97};
     cout<<sizeof(arr)/sizeof(arr[0])<<endl;
     //使用二分查找函数
-    int result = RecursiveBSGetIndex(arr,0,sizeof(arr)/sizeof(arr[0])-1,1);
+    int result = RecursiveBSGetIndex(arr,0,sizeof(arr)/sizeof(arr[0])-1,9999);
     if (result == -1) {
         cout<<"查找的值不存在"<<endl;
     }else {
