@@ -4,7 +4,7 @@ using namespace std;
 int RecursiveBSGetIndex(int arr[], int start, int end, int target);
 
 int main() {
-    //递归版二分查找
+    //递归版二分查找.
     //解决问题：一个排好序（升序/降序）的数组中找到特定的值
     //定义一个有序数组
     int arr[] = {2,6,13,21,36,47,63,81,97};
