@@ -24,7 +24,8 @@ int WhileBSGetIndex(int arr[], int size, int target) {
     //进入循环,如果s=e说明没找到，返回-1
     while (start<=end) {
         //先通过start,end计算出mid的值
-        mid = (start+end)/2;
+        //mid = (start+end)/2; //可能会溢出，改为下面的写法
+        mid = start + (end - start) / 2; //防止溢出
         //接下来进入三种情况
         //注意：target在前判断，别搞错关系
         if (target == arr[mid]) { //第一种情况mid=target直接返回index
