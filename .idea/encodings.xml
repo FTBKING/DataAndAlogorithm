@@ -2,5 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/BinarySearch/RecursiveBS.cpp" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/BinarySearch/查找第一次和最后一次出现在数组中的位置BS.cpp" charset="GB2312" />
   </component>
 </project>
