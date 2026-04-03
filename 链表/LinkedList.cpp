@@ -8,7 +8,7 @@ struct Node {
 };
 //待改造为泛型
 class OneWayLinkedList {
-pubilc:
+public:
     //默认初始化
     OneWayLinkedList() {
     //堆区开辟内存空间
