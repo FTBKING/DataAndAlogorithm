@@ -9,14 +9,8 @@ struct Node {
 //待改造为泛型
 class OneWayLinkedList {
 public:
-    //默认初始化
-    OneWayLinkedList() {
-    //堆区开辟内存空间
-    Head = new Node();
-    //全部为空
-    Head->data = NULL;
-    Head->Next = NULL;
-}
+    //维护一个size
+    int size = 0;
     //插入初始值型初始化
     OneWayLinkedList(int data) {
     //堆区开辟内存空间
@@ -32,8 +26,17 @@ public:
             Head = NULL;
         }
     }
-    //插入节点,返回值为int，即为插入在第几个索引位置
-    int Insert(int data) {
+    //头部插入节点
+    void AddFirst(int data) {
+        //先存个temp节点
+        Node* temp = new Node();
+        temp->data = data;
+        temp->Next = Head;
+        //if (Head != NULL){ temp->Next = Head; } //可以简化为直接赋值temp->Next = Head，1.如果Head为NULL，则为NULL。2.不为NULL，下一个就是Head的地址
+        Head = temp;
+    }
+    //尾部插入节点,返回值为int，即为插入在第几个索引位置
+    int AddLast(int data) {
         //如果头节点还没有数据就插到头节点
         if (Head->data == NULL) {
             Head->data = data;
@@ -48,7 +51,7 @@ public:
         temp->Next = NULL;
         //从头指针开始遍历
         Node* temp1 = Head;
-        int currentIndex = 0;
+        int currentIndex = 1;
         while (temp1->Next != NULL) {
             //就向后找到第一个Next地址为空的节点
             temp1 = temp1->Next;
@@ -59,18 +62,42 @@ public:
         //返回当前位置索引
         return currentIndex;
     }
-    //获取头数据
-    int GetHeadData() {
-        return Head->data;
+    //获取指定位置索引的数据
+    int GetDataByIndex(int index) {
+        //0直接返回头指针的数据
+        if (!index) {
+            return Head->data;
+        }
+        //根据确定的索引，指定要遍历的次数
+        //1.没有指定索引
+        Node* temp1 = Head;
+        int currentIndex = 0;
+        while (temp1->Next != NULL && currentIndex != index) {
+            //就向后找到第一个Next地址为空的节点
+            temp1 = temp1->Next;
+            currentIndex++;
+        }
+        if (currentIndex == index) {
+            return temp1->data;
+        }else {
+            return -1;
+        }
     }
 private:
     Node* Head;
 };
 int main() {
     OneWayLinkedList list(10);
-    cout << list.GetHeadData() << endl;
-    cout << list.Insert(20)<<endl;
-    cout << list.Insert(30)<<endl;
-    cout << list.Insert(40)<<endl;
+    //帮我多造几组数据
+    cout << list.AddLast(10)<<endl;
+    cout << list.AddLast(20)<<endl;
+    cout << list.AddLast(30)<<endl;
+    cout << list.AddLast(40)<<endl;
+    //获取指定位置索引的数据
+    cout << list.GetDataByIndex(0)<<endl;
+    cout << list.GetDataByIndex(1)<<endl;
+    cout << list.GetDataByIndex(2)<<endl;
+    cout << list.GetDataByIndex(3)<<endl;
+    cout << list.GetDataByIndex(4)<<endl;
     return 0;
 }
