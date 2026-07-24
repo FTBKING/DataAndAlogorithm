@@ -1,16 +1,26 @@
 #include <iostream>
+using namespace std;
 
-// TIP 要<b>Run</b>代码，请按 <shortcut actionId="Run"/> 或点击装订区域中的 <icon src="AllIcons.Actions.Execute"/> 图标。
+template<class T>
+void Test(T value) {
+    cout<<value<<endl;
+}
+template<class T>
+void Test1(T* value) {
+    cout << value << endl;
+}
 int main() {
-    // TIP 当文本光标位于 <b>lang</b> 变量名称处时，按 <shortcut actionId="RenameElement"/> 可以查看 CLion 如何帮助您重命名该变量。
-    auto lang = "C++";
-    std::cout << "你好世界 " << lang << "!\n";
-
-    for (int i = 1; i <= 5; i++) {
-        // TIP 按 <shortcut actionId="Debug"/> 开始调试代码。我们已为您设置了一个 <icon src="AllIcons.Debugger.Db_set_breakpoint"/> 断点，但您可以随时按 <shortcut actionId="ToggleLineBreakpoint"/> 添加更多断点。
-        std::cout << "i = " << i << std::endl;
-    }
-
+    int b =10;
+    int* a = &b;
+    int& c = b;
+    //问题1：泛型可以代表什么类型？
+    //1.基本类型和类,int，Customclass
+    //2.复合类型，比如基本+指针：int*,CustomClass*，或是基本+引用类型int&，Customclass&
+    //问题2：T*是什么？
+    //是一种约束，传入的参数只能是指针，是其他的会报错
+    Test(a);
+    Test(b);
+    Test(c);
+    Test1(a);
     return 0;
-    // TIP 请访问 <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a> 查看 CLion 帮助。此外，您还可以从主菜单中选择“帮助 | 学习 IDE 功能”，尝试 CLion 的交互式课次。
 }

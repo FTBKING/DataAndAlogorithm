@@ -95,7 +95,5 @@ int main() {
     DL.Print(DL.head);
     cout<<endl;
     DL.PrintReverse(DL.tail);
-
-
     return 0;
 }
